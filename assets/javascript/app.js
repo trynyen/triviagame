@@ -5,7 +5,7 @@ var index = 0;
 var choices;
 var result;
 var image;
-var imageIndex = 1;
+var imageIndex = 0;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
@@ -19,7 +19,7 @@ var choice2 = ["c1-2","c2-2"];
 var choice3 = ["c1-3","c2-3"];
 var choice4 = ["c1-4","c2-4"];
 
-var image = []
+var image = ['./assets/images/dumbledore.gif'];
 //Show questions and choices
 function showQuestionsAndChoices(){
     $("#question").show();
@@ -64,19 +64,29 @@ $("#choice2").click(checkAnswer);
 $("#choice3").click(checkAnswer);
 $("#choice4").click(checkAnswer);
 
+//Check if answer is correct
+//If correct, say
 function checkAnswer(){
     if ($(this).text() === answer[index]){
-        $("#result").html("Alohomora! You've unlocked the next question");
-        renderQuestion();
-        correct++;
+        $("#result").html("1 point for Slytherin");
+        $("#image").html(`<img src='${image[imageIndex]}'>`);
         index++;
-        
+        correct++;
+        setTimeout(renderQuestion,3000);
     }
     else {
+        $("#result").html("1 point for Gryffindor");
         index++;
         incorrect++;
         renderQuestion();
     }
 }
+
+
+
+
+
+
+
 
 

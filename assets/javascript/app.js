@@ -5,7 +5,6 @@ var index = 0;
 var choices;
 var result;
 var image;
-var imageIndex = 0;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
@@ -13,13 +12,16 @@ var startOver;
 
 //questions and answers array
 var question = ["q1","q2"];
-var answer = ["a1","a2"];
-var choice1 = ["a1","a2"];
-var choice2 = ["c1-2","c2-2"];
-var choice3 = ["c1-3","c2-3"];
-var choice4 = ["c1-4","c2-4"];
+var answer = ["a1","a2","a3"];
+var choice1 = ["a1","a2","a3"];
+var choice2 = ["c1-2","c2-2","c3-2"];
+var choice3 = ["c1-3","c2-3","c3-3"];
+var choice4 = ["c1-4","c2-4","c3-4"];
 
-var image = ['./assets/images/dumbledore.gif'];
+var image = ['./assets/images/dumbledore.gif','./assets/images/leviosa.gif'];
+var incorrectImage = ['./assets/images/lovemagic.gif','./assets/images/freeddobby.gif'];
+
+
 //Show questions and choices
 function showQuestionsAndChoices(){
     $("#question").show();
@@ -44,10 +46,7 @@ function showStart(){
 }
 
 
-//When start button is clicked
-$("#start").click(function(){
-    renderQuestion();
-})
+
 
 //Get questions 
 function renderQuestion(){
@@ -67,23 +66,60 @@ $("#choice4").click(checkAnswer);
 //Check if answer is correct
 //If correct, say
 function checkAnswer(){
+    stop();
     if ($(this).text() === answer[index]){
         $("#result").html("1 point for Slytherin");
-        $("#image").html(`<img src='${image[imageIndex]}'>`);
+        $("#image").html(`<img src='${image[index]}'>`);
         index++;
         correct++;
-        setTimeout(renderQuestion,3000);
+        setTimeout(function(){
+            renderQuestion();
+            timer = 30;
+            run();
+        },3000);
     }
     else {
         $("#result").html("1 point for Gryffindor");
+        $("#image").html(`<img src='${incorrectImage[index]}'>`);
         index++;
         incorrect++;
-        renderQuestion();
+        setTimeout(function(){
+            renderQuestion();
+            timer = 30;
+            run();
+        },3000);
     }
 }
+//When start button is clicked
+$("#start").click(function(){
+    renderQuestion();
+    run();
+})
 
+var timer = 30;
+var intervalId;
 
+function run(){
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement,1000);
+}
 
+function decrement(){
+    timer--;
+    $("#timeRemaining").html("Time remaining: " + timer + " seconds");
+    if (timer === 0){
+        stop();
+    }
+}
+$("#startOver").click(function(){
+    index = 0;
+    renderQuestion();
+    run();
+})
+
+function stop(){
+    clearInterval(intervalId);
+}
 
 
 

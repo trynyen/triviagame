@@ -3,7 +3,7 @@ var index = 0;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-
+var gameEnd = false;
 
 //questions and answers array
 var question = ["1) What is \"Wingardium Leviosa\"?","2) How did Moaning Myrtle die?","3) Who created the Marauder's Map?","4) How does Voldermort summon Harry to the graveyard?","5) Dolores Umbridge's favorite color?","6) Who kills professor Dumbledore?","7) Who is Dobby's master in \"The Deathly Hallows\""];
@@ -68,10 +68,15 @@ $("#choice4").click(checkAnswer);
 //Check if answer is correct
 //If correct or incorrect
 function checkAnswer(){
+    
     $("#timeRemaining").hide();
     hideQuestionsAndChoices();
     stop();
+    if (index === question.length){
     checkGameFinished();
+    }
+    else {
+   
     if ($(this).text() === answer[index]){
         $("#image").show();
         $("#result").show();
@@ -87,7 +92,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },5000);
+        },10);
      
     }
     else if ($(this).text() !== answer[index]){
@@ -109,8 +114,9 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },5000);
+        },10);
     }
+}
 }
 //When start button is clicked
 
@@ -144,6 +150,8 @@ function stop(){
 //Check if game is finished
 function checkGameFinished(){
     if (index === question.length){
+        gameEnd = true;
+        console.log("done");
         index = 0;
         hideQuestionsAndChoices();
         $("#timeRemaining").hide();

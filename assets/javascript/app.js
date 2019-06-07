@@ -152,14 +152,17 @@ function run(){
 }
 
 function decrement(){
-    if (index >= question.length){
-        checkGameFinished();
-        }
-        else {
-       
     timer--;
+
     $("#timeRemaining").html("Time remaining: " + timer + " seconds");
     if (timer <= 0){
+        if (index === question.length-1){
+        unanswered++;
+        stop();
+        checkGameFinished();
+        timer = 30;
+        }
+        else {
         stop();
         index++;
         unanswered++;

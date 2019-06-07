@@ -133,6 +133,7 @@ function decrement(){
         renderQuestion();
         timer = 30;
         run();
+        checkGameFinished();
     }
 }
 

@@ -68,7 +68,7 @@ $("#choice4").click(checkAnswer);
 //Check if answer is correct
 //If correct or incorrect
 function checkAnswer(){
-    
+    //Check if game is ended
     $("#timeRemaining").hide();
     hideQuestionsAndChoices();
     stop();
@@ -84,16 +84,17 @@ function checkAnswer(){
         },4000)
     }
     else if ($(this).text() !== answer[index]){
-            $("#image").show();
-            $("#result").show();
-            $("#result").html("NAH AH!");
-            $("#image").html(`<img src='${incorrectImage[index]}'>`);
-            setTimeout(function(){
-                checkGameFinished();
-                },4000)
+        $("#image").show();
+        $("#result").show();
+        $("#result").html("NAH AH!");
+        $("#image").html(`<img src='${incorrectImage[index]}'>`);
+        setTimeout(function(){
+        checkGameFinished();
+        },4000)
     }
     
     }
+    //If game is not ended
     else {
    
     if ($(this).text() === answer[index]){
@@ -137,7 +138,7 @@ function checkAnswer(){
     }
 }
 }
-//When start button is clicked
+
 
 //create timer for each question
 var timer = 30;

@@ -9,17 +9,17 @@ var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 var startOver;
-
+var gameFinished = false;
 //questions and answers array
-var question = ["q1","q2"];
-var answer = ["a1","a2","a3"];
-var choice1 = ["a1","a2","a3"];
-var choice2 = ["c1-2","c2-2","c3-2"];
-var choice3 = ["c1-3","c2-3","c3-3"];
-var choice4 = ["c1-4","c2-4","c3-4"];
+var question = ["1) What is \"Wingardium Leviosa\"?","2) How did Moaning Myrtle die","3) Who created the Marauder's Map?","4) How does Voldermort summon Harry to the graveyard","5) Dolores Umbridge's favorite color?","6) Who kills professor Dumbledore","7) Who is Dobby's master in \"The Deathly Hallows\""];
+var answer = ["A charm that can levitate things","The Basilisk","Moony, Wormtail, Padfoot, and Prongs","By turning the Triwizard Cup into a portkey","Pink","Severus Snape","No one"];
+var choice1 = ["A charm that can unlock and open doors","The Basilisk","Moony, Wormtail, Padfoot, and Progs","By tricking him into following a path on the Marauder's Map","Pink","Bellatrix Lestrange","The Malfoy family"];
+var choice2 = ["A charm that can repair objects","Tom Marvolo Riddle","Moony, Wormtail, Padfoot, and Prongs","By luring him into a fire with Floo powder","Red","Draco Malfoy","Albus Dumbledore"];
+var choice3 = ["A charm that can turn objects into Portkeys","The giant spider Aragog","Moony, Wormtail, Padfeet, and Prongs","By using Cedric Diggory as bait","Yellow","Severus Snape","No one"];
+var choice4 = ["A charm that can levitate things","The killing curse","Mooney, Wormtail, Padfoot, and Prongs","By turning the Triwizard Cup into a portkey","Blue","Voldermort","Harry Potter"];
 
-var image = ['./assets/images/dumbledore.gif','./assets/images/leviosa.gif'];
-var incorrectImage = ['./assets/images/lovemagic.gif','./assets/images/freeddobby.gif'];
+var image = ['./assets/images/wleviosa.gif','./assets/images/moaningmyrtle.gif','./assets/images/m2.gif','./assets/images/boop.gif','./assets/images/pinkroom.gif','./assets/images/partyhard.gif','./assets/images/dobbydeath.gif',];
+var incorrectImage = ['./assets/images/leviosa.gif','./assets/images/goaway.gif','./assets/images/m1.gif','./assets/images/vol.gif','./assets/images/harm.gif','./assets/images/dumbledore.gif','./assets/images/freeddobby.gif'];
 
 
 //Show questions and choices
@@ -89,6 +89,7 @@ function checkAnswer(){
             run();
         },3000);
     }
+   
 }
 //When start button is clicked
 $("#start").click(function(){
@@ -120,6 +121,12 @@ $("#startOver").click(function(){
 function stop(){
     clearInterval(intervalId);
 }
+
+
+
+
+
+
 
 
 

@@ -72,7 +72,8 @@ function checkAnswer(){
     $("#timeRemaining").hide();
     hideQuestionsAndChoices();
     stop();
-    if (index >= question.length){
+    console.log(index,question.length)
+    if (index === question.length-1){
     checkGameFinished();
     }
     else {
@@ -92,7 +93,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },30);
+        },40);
      
     }
     else if ($(this).text() !== answer[index]){
@@ -114,7 +115,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },30);
+        },40);
     }
 }
 }
@@ -130,6 +131,11 @@ function run(){
 }
 
 function decrement(){
+    if (index >= question.length){
+        checkGameFinished();
+        }
+        else {
+       
     timer--;
     $("#timeRemaining").html("Time remaining: " + timer + " seconds");
     if (timer <= 0){
@@ -139,8 +145,9 @@ function decrement(){
         renderQuestion();
         timer = 30;
         run();
-        checkGameFinished();
+        
     }
+}
 }
 
 function stop(){
@@ -149,7 +156,7 @@ function stop(){
 
 //Check if game is finished
 function checkGameFinished(){
-    if (index >= question.length){
+    if (index === question.length-1){
         gameEnd = true;
         console.log("done");
         index = 0;

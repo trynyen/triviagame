@@ -93,7 +93,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },40);
+        },4000);
      
     }
     else if ($(this).text() !== answer[index]){
@@ -115,7 +115,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },40);
+        },4000);
     }
 }
 }

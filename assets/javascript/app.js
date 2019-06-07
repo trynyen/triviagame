@@ -72,7 +72,7 @@ function checkAnswer(){
     $("#timeRemaining").hide();
     hideQuestionsAndChoices();
     stop();
-    if (index === question.length){
+    if (index >= question.length){
     checkGameFinished();
     }
     else {
@@ -92,7 +92,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },10);
+        },30);
      
     }
     else if ($(this).text() !== answer[index]){
@@ -114,7 +114,7 @@ function checkAnswer(){
             $("#timeRemaining").show();
             timer = 30;
             run();
-        },10);
+        },30);
     }
 }
 }
@@ -149,7 +149,7 @@ function stop(){
 
 //Check if game is finished
 function checkGameFinished(){
-    if (index === question.length){
+    if (index >= question.length){
         gameEnd = true;
         console.log("done");
         index = 0;
@@ -172,6 +172,7 @@ function checkGameFinished(){
 
  //When start over button is clicked
 $("#startOver").click(function(){
+    showQuestionsAndChoices();
     $("#startOver").hide();
     $("#stats").hide();
     $("#correctAnswer").hide();

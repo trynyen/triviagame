@@ -79,6 +79,7 @@ function checkAnswer(){
         $("#result").show();
         $("#result").html("CORRECTO!");
         $("#image").html(`<img src='${correctImage[index]}'>`);
+        correct++;
         setTimeout(function(){
         checkGameFinished();
         },4000)
@@ -88,6 +89,7 @@ function checkAnswer(){
         $("#result").show();
         $("#result").html("NAH AH!");
         $("#image").html(`<img src='${incorrectImage[index]}'>`);
+        incorrect++;
         setTimeout(function(){
         checkGameFinished();
         },4000)

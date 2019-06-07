@@ -1,3 +1,15 @@
+*, #question, #timeRemaining, #result, #answer, #stats, #correctAnswer, #incorrectAnswer, #unanswered {
+    font-family: 'Homemade Apple', cursive;
+    font-family: 'Italianno', cursive;
+    font-family: 'Black And White Picture', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px;
+}
+
+#start, #startOver {
+    font-size: 50px;
+}
 html, body {
     height: 0 auto;
     background: url(../images/background.png) no-repeat center center;
@@ -14,16 +26,26 @@ html, body {
     justify-content: center;
     margin: 10% 10%;
     width: 80%;
-    height: 100%;
+    min-height: 600px;
+    height: 800px;
     padding-top:0;
 }
 
 #title {
 width: 100%;
+height: 150px;;
 }
 
 .btn {
     max-width: 100%;
-    font-size: 16px;
-    margin: 4px;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.btn:hover {
+    color: #e1a94e;
+}
+
+#image {
+size: 200px;
 }

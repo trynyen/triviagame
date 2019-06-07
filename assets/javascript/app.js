@@ -206,6 +206,9 @@ $("#startOver").click(function(){
     $("#unanswered").hide();
     $("#timeRemaining").show();
     index = 0;
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
     renderQuestion();
     run();
 })

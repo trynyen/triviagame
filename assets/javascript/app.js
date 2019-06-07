@@ -74,7 +74,25 @@ function checkAnswer(){
     stop();
     console.log(index,question.length)
     if (index === question.length-1){
-    checkGameFinished();
+        if ($(this).text() === answer[index]){
+        $("#image").show();
+        $("#result").show();
+        $("#result").html("CORRECTO!");
+        $("#image").html(`<img src='${correctImage[index]}'>`);
+        setTimeout(function(){
+        checkGameFinished();
+        },4000)
+    }
+    else if ($(this).text() !== answer[index]){
+            $("#image").show();
+            $("#result").show();
+            $("#result").html("NAH AH!");
+            $("#image").html(`<img src='${incorrectImage[index]}'>`);
+            setTimeout(function(){
+                checkGameFinished();
+                },4000)
+    }
+    
     }
     else {
    

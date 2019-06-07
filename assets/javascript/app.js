@@ -204,6 +204,7 @@ $("#startOver").click(function(){
     $("#correctAnswer").hide();
     $("#incorrectAnswer").hide();
     $("#unanswered").hide();
+    $("#timeRemaining").show();
     index = 0;
     renderQuestion();
     run();
